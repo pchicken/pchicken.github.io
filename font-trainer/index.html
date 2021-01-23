@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>font-trainer</title>
+    <script src='main.js' defer></script>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <link rel='icon' href='favicon.svg'>
+</head>
+<body>
+    <div id=testform class="flex-column"
+    style="height:calc(40vh - 0.75em - 2px); background:#fdb64f;">
+        <div id=question class=cipher></div>
+        <input id=answer style="
+        text-align:center;
+        font-size:2em;
+        margin:0.5em;">
+        <div id=result>
+            ...<!-- result inserted here -->
+        </div>
+    </div>
+
+    <div id=setselector
+    style="height:calc(60vh - 0.75em - 2px); display:flex;">
+        <div class="flex-column">
+            <button id=toggleoptions class="right-bottom-border">toggle options</button>
+            <div id=categorytabpane class="flex-column grow right-border options">
+                <!-- category tabs inserted here -->
+            </div>
+            <button class="right-border options">deselect all</button>
+        </div>
+        
+        
+        <div id=categorycontentpane class=options
+        style="max-height:100%; overflow-y:scroll;">
+            <!-- category contents inserted here -->
+        </div>
+    </div>
+
+    <!--
+        TEMPLATES == KEEP OUT! 
+        is the use of these templates justified?
+        probably not. but still, it happened.
+    -->
+    <template id=categorytab>
+        <button style=position:relative;>
+            <div>title</div>
+            <input type="checkbox" style="position:absolute; top:0; right:0;"
+            onclick=js:if(!event.target.checked){event.stopPropagation()}>
+            <!-- i feel suitably evil for this -->
+        </button>
+    </template>
+    <template id=categorycontent>
+        <div>
+            <div style="display:flex; flex-wrap:wrap; gap:10px; padding:10px;">
+                <!-- set buttons inserted here -->
+            </div>
+        </div>
+    </template>
+    <template id=setbutton>
+        <button style="position:relative; margin:auto;">
+            <input type="checkbox" checked=true style="position:absolute; top:0; right:0;">
+            <!-- set preview table inserted here -->
+        </button>
+    </template>
+</body>
+</html>
