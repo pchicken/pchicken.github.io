@@ -75,8 +75,9 @@ function format() {
 	collected.disabled = true;
 	formatted.disabled = true;
 	formatted.value = collected.value
-		.replace(/(\n|\t)/g, "")
-		.replace(/\/\*.*?\*\//g, "");
+		.replace(/\n/g, "")
+		.replace(/\/\*.*?\*\//g, "")
+		.replace(/\s+/g, " ");
 	collected.disabled = false;
 	formatted.disabled = false;
 }
