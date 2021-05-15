@@ -43,7 +43,7 @@ function toggleAll() {
 }
 
 function toggleWith(suffix) {
-	let filtered = Array.from(selector.children).filter((x) =>
+	const filtered = Array.from(selector.children).filter((x) =>
 		x.textContent.endsWith(suffix)
 	);
 	toggleOf(filtered);
@@ -75,7 +75,7 @@ function format() {
 	collected.disabled = true;
 	formatted.disabled = true;
 	formatted.value = collected.value
-		.replace(/\n/g, "")
+		.replace(/\n|\t/g, "")
 		.replace(/\/\*.*?\*\//g, "")
 		.replace(/\s{2,}/g, " ");
 	collected.disabled = false;
